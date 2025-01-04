@@ -13,25 +13,26 @@ class nat_LOAI_SAN_PHAMTableSeeder extends Seeder
     public function run(): void
     {
         //
-        DB::table('nat_loai_san_pham')->insert([
-            'natMaLoai'  =>"L001",
-            'natTenLoai' =>"cây cảnh văn phòng",
-            'natTrangThai' =>0    
-         ]);
-         DB::table('nat_loai_san_pham')->insert([
-             'natMaLoai'  =>"L002",
-             'natTenLoai' =>"cây đẻ bàn",
-             'natTrangThai' =>0    
-          ]);
-          DB::table('nat_loai_san_pham')->insert([
-             'natMaLoai'  =>"L003",
-             'natTenLoai' =>"cây cảnh phong thủy",
-             'natTrangThai' =>0    
-          ]);
-          DB::table('nat_loai_san_pham')->insert([
-             'natMaLoai'  =>"L004",
-             'natTenLoai' =>"cây thủy canh",
-             'natTrangThai' =>0    
-          ]);
+        DB::table('nat_LOAI_SAN_PHAM')->insert([
+            'natMaLoai'=>'MB',
+            'natTenLoai'=>'MACBOOKMACBOOK',
+            'natTrangThai'=>0
+        ]);
+        DB::table('nat_LOAI_SAN_PHAM')->insert([
+            'natMaLoai'=>'LE',
+            'natTenLoai'=>'LENOVO',
+            'natTrangThai'=>0
+        ]);
+        DB::table('nat_LOAI_SAN_PHAM')->insert([
+         'natMaLoai'=>'DE',
+         'natTenLoai'=>'DELL',
+         'natTrangThai'=>0
+     ]);
+     DB::table('nat_LOAI_SAN_PHAM')->insert([
+      'natMaLoai'=>'HP',
+      'natTenLoai'=>'HP',
+      'natTrangThai'=>0
+  ]);
+       
     }
 }

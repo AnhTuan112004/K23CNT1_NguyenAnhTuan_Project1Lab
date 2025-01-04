@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('NAT_SAN_PHAM', function (Blueprint $table) {
+        Schema::create('nat_SAN_PHAM', function (Blueprint $table) {
             $table->id();
-            $table->string('natMaSanPham', 255)->unique(); // Unique varchar(255)
-            $table->string('natTenSanPham', 255); // Varchar(255)
-            $table->string('natHinhAnh', 255)->nullable(); // Varchar(255) (nullable)
-            $table->integer('natSoLuong'); // Integer
-            $table->float('natDonGia'); // Float
-            $table->bigInteger('natMaLoai')->referencs('id')->on('NAT_LOAI_SAN_PHAM');
+            $table->string('natMaSanPham',255)->unique();
+            $table->string('natTenSanPham',255);
+            $table->string('natHinhAnh',255);
+            $table->Integer('natSoLuong');
+            $table->float('natDonGia');
+            $table->bigInteger('natMaLoai')->references('id')->on('nat_LOAI_SAN_PHAM');
+            $table->string('natMoTa',1000);
             $table->tinyInteger('natTrangThai');
             $table->timestamps();
+            
         });
     }
 
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('NAT_SAN_PHAM');
+        Schema::dropIfExists('nat_SAN_PHAM');
     }
 };

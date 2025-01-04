@@ -11,18 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('NAT_HOA_DON', function (Blueprint $table) {
+        Schema::create('nat_HOA_DON', function (Blueprint $table) {
             $table->id();
-            $table->string('natMaHoaDon')->unique();  // Mã hóa đơn, không trùng
-            $table->bigInteger('natMaKhaHang')->references('id')->on('NAT_KHACH_HANG');  // Mã khách hàng, khóa ngoại
-            $table->dateTime('natNgayHoaDon');  // Ngày hóa đơn
-            $table->dateTime('natNgayNhan');  // Ngày nhận
-            $table->string('natHoTenKhachHang');  // Họ tên khách hàng
-            $table->string('natEmail')->nullable();  // Email (nullable)
-            $table->string('natDienThoai', 10);  // Số điện thoại, tối đa 10 ký tự
-            $table->string('natDiaChi');  // Địa chỉ
-            $table->float('natTongTriGia');  // Tổng trị giá
-            $table->tinyInteger('natTrangThai');  // Trạng thái (sử dụng kiểu tinyint)
+            $table->string('natMaHoaDon', 255)->unique();
+            
+            // Định nghĩa khóa ngoại cho natMaKhachHang
+            $table->bigInteger('natMaKhachHang')->unsigned();
+            $table->foreign('natMaKhachHang')
+                  ->references('id')->on('nat_KHACH_HANG')
+                  ->onDelete('cascade');  // Xóa hóa đơn khi khách hàng bị xóa
+            
+            $table->date('natNgayHoaDon');
+            $table->date('natNgayNhan');
+            $table->string('natHoTenKhachHang', 255);
+            $table->string('natEmail', 255);
+            $table->string('natDienThoai', 255);
+            $table->string('natDiaChi', 255);
+            $table->float('natTongGiaTri');
+            $table->tinyInteger('natTrangThai');
             $table->timestamps();
         });
     }
@@ -32,6 +38,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('NAT_HOA_DON');
+        Schema::dropIfExists('nat_HOA_DON');
     }
 };

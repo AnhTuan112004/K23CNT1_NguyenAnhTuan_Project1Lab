@@ -21,7 +21,13 @@ class DatabaseSeeder extends Seeder
         $this->call([
             nat_QUAN_TRITableSeeder::class,
             nat_LOAI_SAN_PHAMTableSeeder::class,
-            nat_SAN_PHAMTableSeeder::class
+            nat_SAN_PHAMTableSeeder::class,
+            nat_KHACH_HANGTableSeeder::class,
+            nat_HOA_DONTableSeeder::class,
+            nat_CT_HOA_DONTableSeeder::class,
+            nat_TIN_TUC::class
+
         ]);
+        
     }
 }

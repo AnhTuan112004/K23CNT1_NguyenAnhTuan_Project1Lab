@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('NAT_KHACH_HANG', function (Blueprint $table) {
+        Schema::create('nat_KHACH_HANG', function (Blueprint $table) {
             $table->id();
-            $table->string('natMaKhachHang', 255)->unique(); // Mã khách hàng duy nhất
-            $table->string('natHoTenKhachHang', 255); // Họ tên khách hàng
-            $table->string('natEmail', 255)->unique(); // Email duy nhất
-            $table->string('natMaKhau', 255); // Mật khẩu
-            $table->string('natDienThoai', 10)->unique(); // Số điện thoại duy nhất
-            $table->string('natDiaChi', 255)->nullable(); // Địa chỉ
-            $table->dateTime('natNgayDangKy'); // Ngày đăng ký
-            $table->tinyInteger('natTrangThai'); 
+            $table->string('natMaKhachHang',255)->unique();
+            $table->string('natHoTenKhachHang',255);
+            $table->string('natEmail',255)->unique();
+            $table->string('natMatKhau',255);
+            $table->string('natDienThoai',255)->unique();
+            $table->string('natDiaChi',255);
+            $table->date('natNgayDangKy');
+            $table->tinyInteger('natTrangThai');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('NAT_KHACH_HANG');
+        Schema::dropIfExists('nat_KHACH_HANG');
     }
 };

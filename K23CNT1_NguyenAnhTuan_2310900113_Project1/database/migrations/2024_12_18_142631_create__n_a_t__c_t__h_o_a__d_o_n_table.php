@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigInteger('natSanPhamID')->references('id')->on('NAT_SAN_PHAM');
             $table->integer('natSoLuongMua');  // Số lượng mua
             $table->float('natDonGiaMua');  // Đơn giá mua
-            $table->float('natThanhTien');  // Thành tiền
+            $table->double('natThanhTien');  // Thành tiền
             $table->tinyInteger('natTrangThai'); 
             $table->timestamps();
         });
